@@ -2,18 +2,19 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Course } from '../entities/courses.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Tag } from 'src/entities/tags.entity';
+import { Tag } from '../entities/tags.entity';
 import { CreateCourseDTO } from './dto/create-courses-dto';
 import { UpdateCourseDTO } from './dto/update-courses-dto';
 
 @Injectable()
 export class CoursesService {
-    constructor(
-        @InjectRepository(Course)
-        private readonly courseRepository: Repository<Course>,
-        @InjectRepository(Tag)
-        private readonly tagRepository: Repository<Tag>
-    ){}
+
+    @InjectRepository(Course)
+     private readonly courseRepository: Repository<Course>
+
+    @InjectRepository(Tag)
+    private readonly tagRepository: Repository<Tag>
+  
     
 
      async findAll(){
