@@ -19,7 +19,7 @@ export class CoursesController {
         return this.CoursesService.findOne(id)
     }
     
-    @Post("/create")
+    @Post()
     create(@Body() createCourseDTO: CreateCourseDTO){
         return this.CoursesService.create(createCourseDTO) 
     }
